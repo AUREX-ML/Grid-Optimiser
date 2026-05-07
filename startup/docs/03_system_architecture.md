@@ -32,3 +32,43 @@ Demand response + optimization algorithm:
 ## 5. Roadmap
 - **Staging (current):** demand-side management + internal optimization (reduce bills, reduce strain).
 - **Pro version:** bi-directional energy flow + net metering / P2P trading marketplace.
+
+## 6. Graphical design (multi-site VPP topology)
+
+```mermaid
+flowchart TD
+    %% Virtual Power Plant (VPP) Architectural Design
+
+    subgraph SITE1["SITE-1"]
+        DER1A["DER-1"]
+        DER2A["DER-2"]
+        DER3A["DER-3"]
+        DER4A["DER-4"]
+
+        PI1["Raspberry Pi (MyEMS Edge Gateway)"]
+
+        DER1A --> PI1
+        DER2A --> PI1
+        DER3A --> PI1
+        DER4A --> PI1
+    end
+
+    subgraph SITE2["SITE-2"]
+        DER1B["DER-1"]
+        DER2B["DER-2"]
+        DER3B["DER-3"]
+        DER4B["DER-4"]
+
+        PI2["Raspberry Pi (MyEMS Edge Gateway)"]
+
+        DER1B --> PI2
+        DER2B --> PI2
+        DER3B --> PI2
+        DER4B --> PI2
+    end
+
+    TB["ThingsBoard Central Dashboard / VPP Controller"]
+
+    PI1 <--> |MQTT| TB
+    PI2 <--> |MQTT| TB
+```
