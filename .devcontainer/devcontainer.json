@@ -1,0 +1,36 @@
+{
+	"$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+	"name": "vpp",
+	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+	"features": {
+		"ghcr.io/devcontainers/features/python:1": {
+			"version": "3.12"
+		}
+	},
+	"forwardPorts": [3000],
+	"remoteUser": "vscode",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"editor.tabSize": 2,
+				"editor.insertSpaces": true,
+				"editor.rulers": [80, 120],
+				"editor.formatOnSave": true,
+				"editor.wordWrap": "on",
+				"files.trimTrailingWhitespace": true,
+				"files.insertFinalNewline": true,
+				"files.exclude": {
+					"**/.git": true,
+					"**/.DS_Store": true,
+					"**/node_modules": true,
+					"**/dist": true
+				},
+				"search.exclude": {
+					"**/node_modules": true,
+					"**/dist": true
+				}
+			},
+			"extensions": []
+		}
+	}
+}
